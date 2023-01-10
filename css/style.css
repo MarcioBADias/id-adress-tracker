@@ -83,3 +83,7 @@ a {
 a:hover{
     color: white;
 }
+
+#map { 
+    height: 180px; 
+}

@@ -8,23 +8,59 @@
   
   <title>Frontend Mentor | IP Address Tracker</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+  <link rel="stylesheet" href="./css/style.css">
+
+  <script src="./app/app.js" defer></script>
 </head>
 <body>
+  <main class="container">
+    <section>
+      <h1>
+        IP Address Tracker
+      </h1>
 
-  IP Address Tracker
-
-  Search for any IP address or domain
-
-  IP Address
-  Location
-  Timezone
-    UTC <!-- add offset value dynamically using the API -->
-  ISP
+    </section>
+  <section>
+    <form>
+      <div class="input-search-area">
+        <input type="text" name="input" id="input" placeholder="Search for any IP address or domain">
+        <input type="submit" value=" " class="button-submit">        
+      </div>
+      <div>
+        <span></span>
+      </div>
+    </form>
+    
+  </section>
+  <section>
+    <div class="infos-area">
+      <div class="ip title-area">
+        IP
+        <div class="response">
+          192.212.174.101
+        </div>
+      </div>
+      <div class="address title-area">
+        Address
+        <div class="response">
+          Brooklyn,NY 10001
+        </div> 
+      </div>
+      <div class="timeZone title-area">
+        Timezone
+        <div class="response">
+          UTC <!-- add offset value dynamically using the API -->
+        </div>
+      </div>
+      <div class="isp title-area">
+        ISP
+        <div class="response">
+          SpaceX Starlink
+        </div>
+      </div>
+    </div>
+  </section>
+  </main>
   
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 

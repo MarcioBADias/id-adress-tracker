@@ -1,0 +1,85 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: url(../images/pattern-bg.png) center / cover;
+    font-size: 2rem; 
+    text-align: center;
+}
+
+main{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    width: 1440px;
+}
+
+h1{
+    color: white;
+    font-size: 3rem;
+}
+section{
+    width: 100%;
+    margin: 2rem 0;
+}
+
+.infos-area{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.input-search-area{
+    margin: 0 auto;
+    width: 40%;
+}
+
+#input{
+    border-radius: 10px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    margin-right: -5px;
+    padding: 1rem;
+    width: 60%;
+}
+
+.button-submit{
+    background: url(../images/icon-arrow.svg) center / 1rem no-repeat;
+    background-color: black;
+    border-radius: 10px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    color: white;
+    margin-left: -5px;
+    padding: 1rem;
+}
+
+.infos-area{
+    background: white;
+    border-radius: 15px;
+    min-height: 160px;
+    padding: 1rem;
+    justify-content: space-around;
+    text-align: left;
+}
+
+.title-area{
+    color: darkgray;
+    font-size: 18px;
+}
+
+.response{
+    color: black;
+    font-size: 2rem;
+}
+
+a {
+    color: hsl(228, 45%, 44%);
+    text-decoration: none;
+}
+
+a:hover{
+    color: white;
+}

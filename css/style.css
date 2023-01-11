@@ -66,7 +66,7 @@ form{
     box-shadow: 0px 7px 17px 0px #333;
     padding: 1rem;
     position: absolute;
-    z-index: 1rem;
+    z-index: 2;
 }
 
 ul{
@@ -90,26 +90,25 @@ ul{
     color: black;
     font-size: 2rem;
     font-weight: 500;
-}
-
-li+li {
-    margin-left: 3rem;
-    position: relative;
+    margin-top: 1rem;
 }
 
 div{
-    padding-left: 3rem;
+    padding-left: 2rem;
 }
 
 .map-area{
-    height: 65vh;
+    z-index: 1;
 }
 
-#map { 
+#map {
     height: 100%; 
     width: 100%;
 }
 
+footer{
+    text-align: center;
+}
 
 a {
     color: hsl(228, 45%, 44%);

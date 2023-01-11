@@ -22,62 +22,62 @@
   <script src="./app/app.js" defer></script>
 </head>
 <body>
-  <main class="container">
-    <section>
+  <main>
+    <header class="search-area">
       <h1>
         IP Address Tracker
       </h1>
-
-    </section>
-  <section>
-    <form>
-      <div class="input-search-area">
+      <form class="input-search-area">
         <input type="text" name="input" id="input" placeholder="Search for any IP address or domain">
-        <input type="submit" value=" " class="button-submit">        
-      </div>
-      <div>
+        <input type="submit" value=" " class="button-submit">
         <span></span>
-      </div>
-    </form>
-    
-  </section>
-  <section>
-    <div class="infos-area">
-      <div class="ip title-area">
-        IP
-        <div class="response">
-          192.212.174.101
-        </div>
-      </div>
-      <div class="address title-area">
-        Address
-        <div class="response">
-          Brooklyn,NY 10001
-        </div> 
-      </div>
-      <div class="timeZone title-area">
-        Timezone
-        <div class="response">
-          UTC <!-- add offset value dynamically using the API -->
-        </div>
-      </div>
-      <div class="isp title-area">
-        ISP
-        <div class="response">
-          SpaceX Starlink
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div id="map"></div>
-  </section>
+      </form>
+        
+      <section class="infos-area">
+        <ul>
+          <li>
+            <div class="ip title-area">
+              IP
+              <div class="response">
+                192.212.174.101
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="address title-area">
+              Address
+              <div class="response">
+                Brooklyn,NY 10001
+              </div> 
+            </div>
+          </li>
+          <li>
+            <div class="timeZone title-area">
+              Timezone
+              <div class="response">
+                UTC <!-- add offset value dynamically using the API -->
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="isp title-area">
+              ISP
+              <div class="response">
+                SpaceX Starlink
+              </div>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </header>
+    <section class="map-area">
+      <!-- <div id="map"></div> -->
+    </section>
   </main>
   
-  <div class="attribution">
+  <footer class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="https://github.com/MarcioBADias">Marcio Dias</a>.
-  </div>
+  </footer>
 </body>
 </html>

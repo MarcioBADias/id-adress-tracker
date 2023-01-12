@@ -41,10 +41,9 @@ getGeoIp('',(error,data)=>{
 
     const getDataInfos = [
         getData.ip,
-        `${getData.location.city}
-        ${getData.location.country}`,
+        `${getData.location.city} - ${getData.location.country}`,
         `UTC ${getData.location.timezone}`,
-        getData.isp
+        `${getData.isp}`
     ]
     
     map.setView([getData.location.lat, getData.location.lng], 15);

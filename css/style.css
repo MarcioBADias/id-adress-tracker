@@ -13,7 +13,7 @@ body{
 
 main{
     display: grid;
-    grid-template-rows: 2.8fr 4fr;
+    grid-template-rows: 3fr 4fr;
     height: 100vh;
     width: 100vw;
 }
@@ -67,6 +67,10 @@ form{
     padding: 1rem 2rem;
 }
 
+.button-submit:hover{
+    cursor: pointer;
+}
+
 span{
     color:#fff;
     font-size: 1.5rem;
@@ -76,11 +80,10 @@ span{
 .infos-area{
     background: #fff;
     border-radius: 1rem;
-    bottom: -98px;
+    bottom: -45%;
     box-shadow: 0px 7px 17px 0px #333;
     padding: 1rem;
     position: absolute;
-
     z-index: 2;
 }
 
@@ -89,7 +92,7 @@ ul{
     padding: 1rem 4rem;
     justify-content: center;
     list-style: none;
-    max-height: 150px;
+    max-height: 160px;
     min-width: 80vw;
 }
 
@@ -97,6 +100,10 @@ li{
     display: flex;
     justify-content: space-around;
     width: 100%;
+}
+
+li+li{
+    margin-left: 3rem;
 }
 
 .title-area{
@@ -110,7 +117,6 @@ li{
 }
 
 .response{
-    background-color: aqua;
     color: black;
     font-size: 1.5rem;
     font-weight: 500;

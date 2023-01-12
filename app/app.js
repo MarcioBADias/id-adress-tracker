@@ -1,4 +1,5 @@
 const form = document.querySelector('form');
+const infoResponses = document.querySelectorAll('.response');
 
 // CRIAÇÃO DO MAPA COM LEAFLET
 
@@ -35,7 +36,22 @@ getGeoIp((error,data)=>{
         return error;
     }
     const getData = data;
+
+    const getDataInfos = [
+        getData.ip,
+        `${getData.location.city}
+        ${getData.location.country}`,
+        `UTC ${getData.location.timezone}`,
+        getData.isp
+    ]
+    
     map.setView([getData.location.lat, getData.location.lng], 15);
+    infoResponses[0].textContent = getData.ip;
+
+    infoResponses.forEach((response,index) => {
+        response.textContent = getDataInfos[index]
+    })
+
     return console.log(getData);
 })
 

@@ -7,6 +7,10 @@
     padding: 0;
 }
 
+body{
+    width: 1440px;
+}
+
 main{
     display: grid;
     grid-template-rows: 2.5fr 4fr;
@@ -89,7 +93,7 @@ ul{
 
 .response{
     color: black;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 500;
     margin-top: 1rem;
 }

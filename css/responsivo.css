@@ -1,13 +1,17 @@
 /* celulares */
 @media screen and (min-width:0) {
     body{
-        zoom: 30%;
+        zoom: 70%;
     }
 }
 /* tablet */
 
 /* desktop */
 @media screen and (min-width: 992px){
+    body{
+        zoom: 100%;
+    }
+
     main{
         display: grid;
         grid-template-rows: 3fr 6fr;
@@ -54,7 +58,7 @@
         padding: 1rem 4rem;
         justify-content: center;
         list-style: none;
-        max-height: 190px;
+        max-height: 160px;
         min-width: 80vw;
     }
     

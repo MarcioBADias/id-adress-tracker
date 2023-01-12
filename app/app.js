@@ -1,4 +1,5 @@
 const form = document.querySelector('form');
+const span = document.querySelector('span');
 const infoResponses = document.querySelectorAll('.response');
 const apiKey = 'at_8j2YtcS1sRr6olfsrjR4iaPdHNn7o';
 
@@ -80,7 +81,11 @@ getGeoIp('',(error,data)=>{
 form.addEventListener('submit', e => {
     e.preventDefault();
     const inputValue = form.input.value;
-    const spanResponse = form.querySelector('span');
+
+    if(inputValue ===''){
+        span.textContent = 'insira um valor no campo abaixo';
+        return
+    }
 
     if(inputValue !== ''){
         getGeoIp(inputValue,(error,data)=>{

@@ -4,7 +4,7 @@ const apiKey = 'at_8j2YtcS1sRr6olfsrjR4iaPdHNn7o';
 
 // CRIAÇÃO DO MAPA COM LEAFLET
 
-var map = L.map('map')
+var map = L.map('map');
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
@@ -49,6 +49,16 @@ getGeoIp('',(error,data)=>{
     map.setView([getData.location.lat, getData.location.lng], 15);
     infoResponses[0].textContent = getData.ip;
 
+    
+    var marker = L.marker([getData.location.lat, getData.location.lng]).addTo(map);
+
+    var circle = L.circle([getData.location.lat, getData.location.lng], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 500
+    }).addTo(map);
+
     infoResponses.forEach((response,index) => {
         response.textContent = getDataInfos[index]
     })
@@ -89,6 +99,15 @@ form.addEventListener('submit', e => {
             
             map.setView([getData.location.lat, getData.location.lng], 15);
             infoResponses[0].textContent = getData.ip;
+
+            var marker = L.marker([getData.location.lat, getData.location.lng]).addTo(map);
+
+            var circle = L.circle([getData.location.lat, getData.location.lng], {
+                color: 'red',
+                fillColor: '#f03',
+                fillOpacity: 0.5,
+                radius: 500
+            }).addTo(map);
         
             infoResponses.forEach((response,index) => {
                 response.textContent = getDataInfos[index]

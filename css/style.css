@@ -80,6 +80,7 @@ span{
     box-shadow: 0px 7px 17px 0px #333;
     padding: 1rem;
     position: absolute;
+
     z-index: 2;
 }
 
@@ -88,8 +89,14 @@ ul{
     padding: 1rem 4rem;
     justify-content: center;
     list-style: none;
-    max-height: 100%;
-    width: 80vw;
+    max-height: 150px;
+    min-width: 80vw;
+}
+
+li{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
 }
 
 .title-area{
@@ -98,18 +105,18 @@ ul{
     font-size: .9rem;
     font-weight: 700;
     margin-bottom: .5rem;
+    max-width: 120px;
     text-transform: uppercase;
 }
 
 .response{
+    background-color: aqua;
     color: black;
     font-size: 1.5rem;
     font-weight: 500;
     margin-top: 1rem;
-}
-
-div{
-    padding-left: 2rem;
+    text-align: center;
+    text-overflow: ellipsis;
 }
 
 .map-area{

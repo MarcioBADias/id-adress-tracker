@@ -7,15 +7,11 @@
     padding: 0;
 }
 
-body{
-    width: 1440px;
-}
-
 main{
     display: grid;
-    grid-template-rows: 3fr 4fr;
-    height: 100vh;
-    width: 100vw;
+    grid-template-rows: 3fr 14fr;
+    height: 100%;
+    width: 100%;
 }
 
 .search-area{
@@ -33,7 +29,7 @@ main{
 
 h1{
     color: #fff;
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 500;
     margin: 3rem 0 1rem 0;
     width: 100%;
@@ -45,7 +41,7 @@ form{
     justify-content: center;
     margin-bottom: 0rem;
     transition: 0s;
-    width: 100%;
+    width: 80%;
 }
 
 #input{
@@ -73,7 +69,7 @@ form{
 
 span{
     color:#fff;
-    font-size: 1.5rem;
+    font-size: .8rem;
     margin-bottom: .5rem;
 }
 
@@ -84,6 +80,7 @@ span{
     box-shadow: 0px 7px 17px 0px #333;
     padding: 1rem;
     position: absolute;
+    width: 500px;
     z-index: 2;
 }
 
@@ -93,7 +90,7 @@ ul{
     justify-content: center;
     list-style: none;
     max-height: 160px;
-    min-width: 80vw;
+    min-width: 100%;
 }
 
 li{
@@ -102,27 +99,24 @@ li{
     width: 100%;
 }
 
-li+li{
-    margin-left: 3rem;
-}
-
 .title-area{
     color: darkgray;
     display: block;
-    font-size: .9rem;
+    font-size: .8rem;
     font-weight: 700;
     margin-bottom: .5rem;
+    margin-left: 2rem;
     max-width: 120px;
     text-transform: uppercase;
 }
 
 .response{
     color: black;
-    font-size: 1.5rem;
+    font-size: .8rem;
     font-weight: 500;
     margin-top: 1rem;
     text-align: center;
-    text-overflow: ellipsis;
+    text-overflow:clip;
 }
 
 .map-area{

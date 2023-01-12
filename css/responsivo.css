@@ -1,0 +1,88 @@
+/* celulares */
+@media screen and (min-width:0) {
+    
+}
+/* tablet */
+
+/* desktop */
+@media screen and (min-width: 992px){
+    main{
+        display: grid;
+        grid-template-rows: 3fr 6fr;
+        height: 100%;
+        width: 100%;
+    }
+
+    h1{
+        color: #fff;
+        font-size: 3rem;
+        font-weight: 500;
+        margin: 3rem 0 1rem 0;
+        width: 100%;
+    }
+
+    form{
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 0rem;
+        transition: 0s;
+        width: 100%;
+    }
+
+    span{
+        color:#fff;
+        font-size: 1.5rem;
+        margin-bottom: .5rem;
+    }
+
+    .infos-area{
+        background: #fff;
+        border-radius: 1rem;
+        bottom: -50%;
+        box-shadow: 0px 7px 17px 0px #333;
+        padding: 1rem;
+        position: absolute;
+        width: 90%;
+        z-index: 2;
+    }
+    
+    ul{
+        display: flex;
+        padding: 1rem 4rem;
+        justify-content: center;
+        list-style: none;
+        max-height: 160px;
+        min-width: 80vw;
+    }
+    
+    li{
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+    }
+    
+    li+li{
+        margin-left: 3rem;
+    }
+    
+    .title-area{
+        color: darkgray;
+        display: block;
+        font-size: .9rem;
+        font-weight: 700;
+        margin-bottom: .5rem;
+        max-width: 120px;
+        text-transform: uppercase;
+    }
+    
+    .response{
+        color: black;
+        font-size: 1.5rem;
+        font-weight: 500;
+        margin-top: 1rem;
+        text-align: center;
+        text-overflow: ellipsis;
+    }
+    
+}

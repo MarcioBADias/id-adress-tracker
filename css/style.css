@@ -21,6 +21,7 @@ main{
     flex-direction: column;
     font-size: 2rem; 
     height: 100%;
+    margin-bottom: 5rem;
     position: relative;
     text-align: center;
     width: 100%;
@@ -38,7 +39,7 @@ form{
     align-items: center;
     display: flex;
     justify-content: center;
-    margin-bottom: 3rem;
+    margin-bottom: 0rem;
     transition: 0s;
     width: 100%;
 }

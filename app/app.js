@@ -16,17 +16,20 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 const getGeoIp = (ipOrDomain,callback) => {
     const request = new XMLHttpRequest();
-    
-    request.addEventListener('readystatechange', () => {
-        if(request.readyState === 4 && request.status === 200){
-            const data = JSON.parse(request.responseText);
+    const getConvertResponse = () => {
+        const data = JSON.parse(request.responseText);
             callback(null,data);
             return
-        }
-        if(request.readyState === 4){
-            return console.log('Dados não retornaram',null)
-        }
+    }
+    
+    request.addEventListener('readystatechange', () => {
+        const isRequestOk = request.readyState === 4 && request.status === 200;
+        const isRequestNotOk = request.readyState === 4 && request.status === 200;
+
+        isRequestOk && getConvertResponse();
+        isRequestNotOk && console.log('Dados não retornaram',null);
     })
+
     request.open('GET', `https://geo.ipify.org/api/v2/country,city,vpn?apiKey=${apiKey}&domain=${ipOrDomain}`);
     request.send();
 }
@@ -62,18 +65,7 @@ getGeoIp('',(error,data)=>{
     infoResponses.forEach((response,index) => {
         response.textContent = getDataInfos[index]
     })
-
-    return console.log(getData);
 })
-
-
-// const success = position => {
-//     console.log(position)
-//     return 
-// }
-
-// navigator.geolocation.watchPosition(success)
-
 
 // CAPITURA DO FORM
 
@@ -125,10 +117,4 @@ form.addEventListener('submit', e => {
     }
 
     span.textContent = 'insira um valor válido como IP ou domínio "www.dominio.com" no campo abaixo.';
-    
-
-    // if(inputValue === ''){
-    //     return spanResponse.textContent = `Isira um valor acima`;
-    // }
-    // return spanResponse.textContent = `Você escreveu ${inputValue}`;
 })

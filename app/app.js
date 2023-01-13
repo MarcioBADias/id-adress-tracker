@@ -81,12 +81,14 @@ form.addEventListener('submit', e => {
     e.preventDefault();
     const inputValue = form.input.value;
 
-    if(inputValue ===''){
+    const ipIsValid = /^((25[0-5]|(2[0-4]|1\d|[1-9]|)\d)\.?\b){4}$/gm.test(inputValue);
+    const domainIsValid = /^((?!-))(xn--)?[a-z0-9][a-z0-9-_]{0,61}[a-z0-9]{0,1}\.(xn--)?([a-z0-9\-]{1,61}|[a-z0-9-]{1,30}\.[a-z]{2,})$/gm.test(inputValue);
+    if(inputValue === ''){
         span.textContent = 'insira um valor no campo abaixo';
         return
     }
 
-    if(inputValue !== ''){
+    if(ipIsValid || domainIsValid){
         getGeoIp(inputValue,(error,data)=>{
             if(error){
                 return error;
@@ -118,7 +120,12 @@ form.addEventListener('submit', e => {
             })
             return
         })
+        span.textContent = '';
+        return
     }
+
+    span.textContent = 'insira um valor válido como IP ou domínio "www.dominio.com" no campo abaixo.';
+    
 
     // if(inputValue === ''){
     //     return spanResponse.textContent = `Isira um valor acima`;

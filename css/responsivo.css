@@ -49,9 +49,13 @@
     form{
         width: calc(90vw - .7rem);
     }
+    .title-area{
+        font-size: .7rem;
+    }
     .infos-area{
         bottom: 45px;
-        padding: 0 1rem;
     }
-
+    .response{
+        font-size: .8rem;
+    }
 }

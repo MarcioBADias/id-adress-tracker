@@ -3,16 +3,15 @@ const span = document.querySelector('span');
 const infoResponses = document.querySelectorAll('.response');
 const apiKey = 'at_9rCYwrQjSNECc90mrvTLT2SerdoHE';
 
-// CRIAÇÃO DO MAPA COM LEAFLET
-
+let dataInfos = [];
 var map = L.map('map', {zoomControl: false});
 
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
-
-// API DE VERIFICAÇÃO DAS CORDENADAS E RETORNO
+const createMap = () => {
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+}
 
 const getGeoIp = (ipOrDomain,callback) => {
     const request = new XMLHttpRequest();
@@ -24,100 +23,82 @@ const getGeoIp = (ipOrDomain,callback) => {
     
     request.addEventListener('readystatechange', () => {
         const isRequestOk = request.readyState === 4 && request.status === 200;
-        const isRequestNotOk = request.readyState === 4 && request.status === 200;
+        const isRequestNotOk = request.readyState === 4;
 
         isRequestOk && getConvertResponse();
-        isRequestNotOk && console.log('Dados não retornaram',null);
+        isRequestNotOk && 'Dados não retornaram';
     })
 
     request.open('GET', `https://geo.ipify.org/api/v2/country,city?apiKey=${apiKey}&domain=${ipOrDomain}`);
     request.send();
 }
 
-// CAPTAÇÃO DA POSIÇÃO DO USUÁRIO
+const setPositionMap = data => map.setView([data.location.lat, data.location.lng], 15);
 
-getGeoIp('',(error,data)=>{
-    if(error){
-        return error;
-    }
-    const getData = data;
-    const getDataInfos = [
-        getData.ip,
-        `${getData.location.city} - ${getData.location.country}`,
-        `UTC ${getData.location.timezone}`,
-        `${getData.isp}`
-    ]
-    
-    map.setView([getData.location.lat, getData.location.lng], 15);
+const setMarkersInMap = data => {
+    var marker = L.marker([data.location.lat, data.location.lng]).addTo(map);
 
-    
-    var marker = L.marker([getData.location.lat, getData.location.lng]).addTo(map);
-
-    var circle = L.circle([getData.location.lat, getData.location.lng], {
+    var circle = L.circle([data.location.lat, data.location.lng], {
         color: 'red',
         fillColor: '#f03',
         fillOpacity: 0.5,
         radius: 500
     }).addTo(map);
+}
 
-    infoResponses.forEach((response,index) => {
-        response.textContent = getDataInfos[index]
+const populateMap = value => {
+    getGeoIp(value,(error,data)=>{
+        if(error){
+            return error;
+        }
+        
+        setPositionMap(data);
+        setMarkersInMap(data);
+
+        dataInfos = [
+            data.ip,
+            `${data.location.city} - ${data.location.country}`,
+            `UTC ${data.location.timezone}`,
+            `${data.isp}`
+        ];
+
+        infoResponses.forEach((response,index) => {
+            response.textContent = dataInfos[index]
+        })
     })
-})
+}
 
-// CAPITURA DO FORM
+const clearInput = ({target}) => {
+    span.textContent = '';
+    target.reset();
+    return
+}
 
-form.addEventListener('submit', e => {
-    e.preventDefault();
-    const inputValue = form.input.value;
+const returnInputEmpy = (value) => {
+    const inputEmpty = value === ''
+    const inputEmptyResponse = span.textContent = 'insira um valor no campo abaixo';
+    
+    inputEmpty && inputEmptyResponse;
+}
 
-    const ipIsValid = /^((25[0-5]|(2[0-4]|1\d|[1-9]|)\d)\.?\b){4}$/gm.test(inputValue);
-    const domainIsValid = /^((?!-))(xn--)?[a-z0-9][a-z0-9-_]{0,61}[a-z0-9]{0,1}\.(xn--)?([a-z0-9\-]{1,61}|[a-z0-9-]{1,30}\.[a-z]{2,})$/gm.test(inputValue);
-    if(inputValue === ''){
-        span.textContent = 'insira um valor no campo abaixo';
-        return
-    }
+const returnInputValid = (value, target) => {
+    const ipIsValid = /^((25[0-5]|(2[0-4]|1\d|[1-9]|)\d)\.?\b){4}$/gm.test(value);
+    const domainIsValid = /^((?!-))(xn--)?[a-z0-9][a-z0-9-_]{0,61}[a-z0-9]{0,1}\.(xn--)?([a-z0-9\-]{1,61}|[a-z0-9-]{1,30}\.[a-z]{2,})$/gm.test(value);
 
     if(ipIsValid || domainIsValid){
-        
-        getGeoIp(inputValue,(error,data)=>{
-            if(error){
-                return error;
-            }
-            // Acesso a API e crio o Objeto com infos
-            const getData = data;
-        
-            const getDataInfos = [
-                getData.ip,
-                `${getData.location.city}
-                ${getData.location.country}`,
-                `UTC ${getData.location.timezone}`,
-                getData.isp
-            ]
-            // Seta a long e lat no MAPA
-            map.setView([getData.location.lat, getData.location.lng], 15);
-
-            // marcadores
-            var marker = L.marker([getData.location.lat, getData.location.lng]).addTo(map);
-
-            var circle = L.circle([getData.location.lat, getData.location.lng], {
-                color: 'red',
-                fillColor: '#f03',
-                fillOpacity: 0.5,
-                radius: 500
-            }).addTo(map);
-            
-            // Populando o mapa
-            infoResponses.forEach((response,index) => {
-                response.textContent = getDataInfos[index]
-            })
-            return
-        })
-        // limpa a tela
-        span.textContent = '';
-        e.target.reset()
+        populateMap(value);
+        clearInput(target);
         return
     }
-
     span.textContent = 'insira um valor válido como IP ou domínio "www.dominio.com" no campo abaixo.';
+}
+
+createMap();
+populateMap('');
+form.addEventListener('submit', e => {
+    e.preventDefault();
+    returnInputEmpy(form.input.value);
+    returnInputValid(form.input.value,e);
 })
+
+

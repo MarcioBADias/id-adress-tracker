@@ -28,7 +28,7 @@ main{
 }
 
 h1{
-    color: #fff;
+    color: #ffffff;
     font-size: 3rem;
     font-weight: 500;
     margin: 3rem 0 1rem 0;
@@ -54,7 +54,7 @@ form{
 
 .button-submit{
     border: none;
-    background: url(../images/icon-arrow.svg) center / .8rem no-repeat;
+    background: url(../images/icon-arrow.svg) center / 1rem no-repeat;
     background-color: #000;
     border-radius: 0 1rem 1rem 0;
     color: #fff;
@@ -95,7 +95,7 @@ ul{
 .title-area{
     color: darkgray;
     display: block;
-    font-size: 1rem;
+    font-size: .8rem;
     font-weight: 700;
     margin-bottom: .5rem;
     text-transform: uppercase;
@@ -108,6 +108,7 @@ ul{
     margin-left: 1rem;
 }
 
+
 .map-area{
     z-index: 1;
 }
@@ -115,11 +116,6 @@ ul{
 #map {
     height: 100%; 
     width: 100%;
-}
-
-.leaflet-top {
-    top:initial;
-    bottom: 1rem;
 }
 
 footer{
@@ -135,7 +131,6 @@ a {
 a:hover{
     color: white;
 }
-
 
 @keyframes fadeUp {
     from{

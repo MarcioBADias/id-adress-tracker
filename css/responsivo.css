@@ -1,23 +1,24 @@
 @media(max-width:760px) {
+
     h1{
-        font-size: 1.2rem;
+        font-size: 2rem;
         margin-top:3rem;
     }
+    form{
+        width: 60%;
+    }
     #input{
-        padding: .5rem;
-        font-size: .5rem;
+        padding: 1rem;
+        font-size: .7rem;
         width: calc(80vw - 4rem);
     }
     .button-submit{
-        background-size: .5rem;
-        padding: .3rem 1rem;
+        background-size: .8rem;
+        padding: 1rem 1.5rem;
     }
     .infos-area{
-        bottom: 0px;
+        bottom: 40px;
         padding: 0rem;
-    }
-    .infos-area{
-        bottom: 75px;
     }
     .ul{
         flex-direction: column;
@@ -27,7 +28,7 @@
         padding: 1rem;
     }
     .title-area{
-        font-size: .5rem;
+        font-size: .8rem;
         margin-right: .3rem;
     }
     .response{
@@ -38,6 +39,9 @@
 }
 
 @media(max-width: 500px){
+    main{
+        grid-template-rows: 1.5fr 4fr;
+    }
     h1{
         font-size: 1.2rem;
         margin-top:3rem;
@@ -45,8 +49,9 @@
     form{
         width: calc(90vw - .7rem);
     }
-    ul{
-        width: 90vw;
-        padding: .8rem;
+    .infos-area{
+        bottom: 45px;
+        padding: 0 1rem;
     }
+
 }

@@ -1,96 +1,52 @@
-/* celulares */
-@media screen and (min-width:0) {
-    body{
-        zoom: 70%;
+@media(max-width:760px) {
+    h1{
+        font-size: 1.2rem;
+        margin-top:3rem;
+    }
+    #input{
+        padding: .5rem;
+        font-size: .5rem;
+        width: calc(80vw - 4rem);
+    }
+    .button-submit{
+        background-size: .5rem;
+        padding: .3rem 1rem;
+    }
+    .infos-area{
+        bottom: 55px;
+        padding: 0rem;
+    }
+    .infos-area{
+        bottom: 75px;
+    }
+    .ul{
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 80vw;
+        padding: 1rem;
+    }
+    .title-area{
+        font-size: .5rem;
+        margin-right: .3rem;
+    }
+    .response{
+        font-size: .5rem;
+        margin: 0;
+        padding-top: .5rem;
     }
 }
 
-/* tablet */
-
-/* desktop */
-@media screen and (min-width: 992px){
-    body{
-        zoom: 100%;
-    }
-
-    main{
-        display: grid;
-        grid-template-rows: 3fr 6fr;
-        height: 100%;
-        width: 100%;
-    }
-
+@media(max-width: 500px){
     h1{
-        color: #fff;
-        font-size: 3rem;
-        font-weight: 500;
-        margin: 3rem 0 1rem 0;
-        width: 100%;
+        font-size: 1.2rem;
+        margin-top:3rem;
     }
-
     form{
-        align-items: center;
-        display: flex;
-        justify-content: center;
-        margin-bottom: 0rem;
-        transition: 0s;
-        width: 100%;
+        width: calc(90vw - .7rem);
     }
-
-    span{
-        color:#fff;
-        font-size: 1.5rem;
-        margin-bottom: .5rem;
-    }
-
-    .infos-area{
-        background: #fff;
-        border-radius: 1rem;
-        bottom: -50%;
-        box-shadow: 0px 7px 17px 0px #333;
-        padding: 1rem;
-        position: absolute;
-        width: 90%;
-        z-index: 2;
-    }
-    
     ul{
-        display: flex;
-        padding: 1rem 4rem;
-        justify-content: center;
-        list-style: none;
-        max-height: 160px;
-        min-width: 80vw;
+        width: 90vw;
+        padding: .8rem;
     }
-    
-    li{
-        display: flex;
-        justify-content: space-around;
-        margin-right: 1rem;
-
-        width: 100%;
-    }
-    
-    li+li{
-        margin-left: 3rem;
-    }
-    
-    .title-area{
-        color: darkgray;
-        display: block;
-        font-size: .9rem;
-        font-weight: 700;
-        margin-bottom: .5rem;
-        max-width: 120px;
-        text-transform: uppercase;
-    }
-    
-    .response{
-        color: black;
-        font-size: 1.5rem;
-        font-weight: 500;
-        margin-top: 1rem;
-        text-align: center;
-    }
-    
 }

@@ -9,9 +9,9 @@
 
 main{
     display: grid;
-    grid-template-rows: 3fr 14fr;
-    height: 100%;
-    width: 100%;
+    grid-template-rows: 2.5fr 4fr;
+    height: 100vh;
+    width: 100vw;
 }
 
 .search-area{
@@ -19,7 +19,7 @@ main{
     background: url(../images/pattern-bg.png) center / cover;
     display: flex;
     flex-direction: column;
-    font-size: 2rem; 
+    font-size: 2rem;
     height: 100%;
     margin-bottom: 5rem;
     position: relative;
@@ -39,28 +39,26 @@ form{
     align-items: center;
     display: flex;
     justify-content: center;
-    margin-bottom: 0rem;
-    transition: 0s;
-    width: 80%;
+    width: 40%;
 }
 
 #input{
     border: none;
     border-radius: 1rem 0 0 1rem;
-    font-size: 1.2rem;
+    font-size: .6rem;
     margin-right: -5px;
-    padding: 1rem;
+    padding: .6rem;
+    outline: none;
     width: 30rem;
 }
 
 .button-submit{
     border: none;
-    background: url(../images/icon-arrow.svg) center / 1rem no-repeat;
-    background-color: black;
+    background: url(../images/icon-arrow.svg) center / .8rem no-repeat;
+    background-color: #000;
     border-radius: 0 1rem 1rem 0;
     color: #fff;
-    height: 3.5rem;
-    padding: 1rem 2rem;
+    padding: .5rem 2rem;
 }
 
 .button-submit:hover{
@@ -74,14 +72,26 @@ span{
 }
 
 .infos-area{
+    animation: fadeUp .5s ease-in-out forwards;
     background: #fff;
     border-radius: 1rem;
-    bottom: -45%;
+    bottom: 55px;
     box-shadow: 0px 7px 17px 0px #333;
     padding: 1rem;
     position: absolute;
-    width: 500px;
-    z-index: 2;
+    z-index: 10;
+}
+
+
+@keyframes fadeUp {
+    from{
+        transform: translateY(0px);;
+        opacity: 0;
+    }
+    to{
+        transform: translateY(110px);
+        opacity: 1;
+    }
 }
 
 ul{
@@ -89,16 +99,14 @@ ul{
     padding: 1rem 4rem;
     justify-content: center;
     list-style: none;
-    max-height: 160px;
-    margin-right: 10rem;
-    min-width: 100%;
+    width: 80vw;
 }
 
-li{
+/* li{
     display: flex;
     justify-content: space-around;
-    width: 100%;
-}
+} */
+
 
 .title-area{
     color: darkgray;
@@ -106,18 +114,14 @@ li{
     font-size: .8rem;
     font-weight: 700;
     margin-bottom: .5rem;
-    margin-left: 2rem;
-    max-width: 120px;
     text-transform: uppercase;
 }
 
 .response{
     color: black;
-    font-size: .8rem;
+    font-size: 1rem;
     font-weight: 500;
-    margin-top: 1rem;
-    text-align: center;
-    text-overflow:clip;
+    margin-left: 1rem;
 }
 
 .map-area{
@@ -129,7 +133,13 @@ li{
     width: 100%;
 }
 
+.leaflet-top {
+    top:initial;
+    bottom: 1rem;
+}
+
 footer{
+    font-size: .5rem;
     text-align: center;
 }
 

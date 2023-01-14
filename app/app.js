@@ -1,11 +1,11 @@
 const form = document.querySelector('form');
 const span = document.querySelector('span');
 const infoResponses = document.querySelectorAll('.response');
-const apiKey = 'at_8j2YtcS1sRr6olfsrjR4iaPdHNn7o';
+const apiKey = 'at_9rCYwrQjSNECc90mrvTLT2SerdoHE';
 
 // CRIAÇÃO DO MAPA COM LEAFLET
 
-var map = L.map('map');
+var map = L.map('map', {zoomControl: false});
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
@@ -30,7 +30,7 @@ const getGeoIp = (ipOrDomain,callback) => {
         isRequestNotOk && console.log('Dados não retornaram',null);
     })
 
-    request.open('GET', `https://geo.ipify.org/api/v2/country,city,vpn?apiKey=${apiKey}&domain=${ipOrDomain}`);
+    request.open('GET', `https://geo.ipify.org/api/v2/country,city?apiKey=${apiKey}&domain=${ipOrDomain}`);
     request.send();
 }
 
@@ -41,7 +41,6 @@ getGeoIp('',(error,data)=>{
         return error;
     }
     const getData = data;
-
     const getDataInfos = [
         getData.ip,
         `${getData.location.city} - ${getData.location.country}`,
@@ -50,7 +49,6 @@ getGeoIp('',(error,data)=>{
     ]
     
     map.setView([getData.location.lat, getData.location.lng], 15);
-    infoResponses[0].textContent = getData.ip;
 
     
     var marker = L.marker([getData.location.lat, getData.location.lng]).addTo(map);
@@ -81,10 +79,12 @@ form.addEventListener('submit', e => {
     }
 
     if(ipIsValid || domainIsValid){
+        
         getGeoIp(inputValue,(error,data)=>{
             if(error){
                 return error;
             }
+            // Acesso a API e crio o Objeto com infos
             const getData = data;
         
             const getDataInfos = [
@@ -94,10 +94,10 @@ form.addEventListener('submit', e => {
                 `UTC ${getData.location.timezone}`,
                 getData.isp
             ]
-            
+            // Seta a long e lat no MAPA
             map.setView([getData.location.lat, getData.location.lng], 15);
-            infoResponses[0].textContent = getData.ip;
 
+            // marcadores
             var marker = L.marker([getData.location.lat, getData.location.lng]).addTo(map);
 
             var circle = L.circle([getData.location.lat, getData.location.lng], {
@@ -106,13 +106,16 @@ form.addEventListener('submit', e => {
                 fillOpacity: 0.5,
                 radius: 500
             }).addTo(map);
-        
+            
+            // Populando o mapa
             infoResponses.forEach((response,index) => {
                 response.textContent = getDataInfos[index]
             })
             return
         })
+        // limpa a tela
         span.textContent = '';
+        e.target.reset()
         return
     }
 

@@ -13,7 +13,7 @@
         padding: .3rem 1rem;
     }
     .infos-area{
-        bottom: 55px;
+        bottom: 0px;
         padding: 0rem;
     }
     .infos-area{
@@ -31,7 +31,7 @@
         margin-right: .3rem;
     }
     .response{
-        font-size: .5rem;
+        font-size: 1rem;
         margin: 0;
         padding-top: .5rem;
     }

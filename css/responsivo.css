@@ -50,12 +50,12 @@
         width: calc(90vw - .7rem);
     }
     .title-area{
-        font-size: .7rem;
+        font-size: .5rem;
     }
     .infos-area{
         bottom: 45px;
     }
     .response{
-        font-size: .8rem;
+        font-size: .7rem;
     }
 }
